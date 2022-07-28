@@ -10,11 +10,13 @@ int(screen_info.current_h))
 screen= pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
-
+Sprite_List = pygame.sprite.Group()
+Platforms = pygame.sprite.Group()
 
 
 def main():
   while True:
+    clock.tick(60)
     for event in pygame.event.get():
       if event.type == QUIT: 
         sys.exit()
@@ -24,6 +26,8 @@ def main():
         if event.key==pygame.K_ESCAPE:
           pygame.display.set_mode(size)
     screen.fill((0,0,100))
+    Platforms.draw(screen)
+    Sprite_List.draw(screen)
     pygame.display.flip()
 if __name__=="__main__":
   main()
